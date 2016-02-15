@@ -1,0 +1,3 @@
+smoke: " --tags @smoke -f pretty --format html --out results.html environment=headless"
+local: " --tags ~@smoke -f pretty --format html --out results.html"
+all: " --tags ~@smoke -f pretty --format html --out results.html environment=saucelabs"
