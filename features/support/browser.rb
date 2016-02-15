@@ -10,11 +10,11 @@ caps = Selenium::WebDriver::Remote::Capabilities.firefox
 caps.platform = 'Windows 7'
 caps.version = ''
 caps['browserName'] = 'Chrome'
-caps[:name] = "Testing BA.com on Sauce"
+caps[:name] = "NOTHS Test"
 
 browser = Watir::Browser.new(
     :remote,
-    :url => "http://batest:3f1b0bc4-3781-4c23-ba48-bd45b70c7122@ondemand.saucelabs.com:80/wd/hub",
+    :url => "http://noths_test:0bc63523-9155-40fc-ab4b-8bda557ce37d@ondemand.saucelabs.com:80/wd/hub",
     :desired_capabilities => caps)
 elsif ENV['environment'] == 'headless'
   browser = Watir::Browser.new :phantomjs
