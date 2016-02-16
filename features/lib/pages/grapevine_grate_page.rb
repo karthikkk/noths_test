@@ -1,10 +1,11 @@
 class GrapevineGratePage
+
   include PageObject
 
   page_url 'http://www.notonthehighstreet.com/thegluttonousgardener/product/mini-vineyard'
 
   def handle_geo_popup
-    if @browser.element(:id, 'geo_popup').exists?
+    if @browser.element(:id, 'geo_popup').exists?  #as I am hitting the site from outside UK, I am getting a geo popup to set the country and currency
       @browser.link(:title, 'Close').when_present.click
       puts "closed geo pop-up message"
     else
@@ -24,7 +25,7 @@ class GrapevineGratePage
   def select_additional_extras
     locale = @browser.link(:href, '/geo').when_present.text #As the sauce lab servers are in the US, I am identifying the currency locale and pass it onto the element identifier below.
     currency = locale[2..-1]  #strip out £ and $ from  £ GBP and $ USD string to pass in the next step
-        @browser.select_list(:id, 'line_item_options_attributes_4_product_option_value_id_currency_'+"#{currency}").select('None')
+    @browser.select_list(:id, 'line_item_options_attributes_4_product_option_value_id_currency_'+"#{currency}").select('None')
   end
 
   def click_add_to_basket
