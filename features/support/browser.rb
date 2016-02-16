@@ -22,16 +22,6 @@ else
   browser =Watir::Browser.new :firefox
 end
 
-Before ('~@headless') do
-  @browser = browser
-  @browser.cookies.clear
-end
-
-Before ('@headless') do
-  @browser = browser
-  @browser.cookies.clear
-end
-
 at_exit do
   browser.close unless browser.nil?
 end

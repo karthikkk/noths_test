@@ -2,6 +2,7 @@ Feature: As a Not On The High Street Customer,
   I have to fill in the mandatory fields on the product selection page
   so that I can add products to the shopping cart
 
+  #negative scenarios, when the customer does not fill in the mandatory text fields
   Scenario Outline: Mandatory fields validation
     Given I am on the products page
     When I do not fill in <mandatory_fields>
@@ -11,3 +12,7 @@ Feature: As a Not On The High Street Customer,
     |mandatory_fields     |
     |desired delivery date|
     |additional extras    |
+
+
+#    Scenario: Text field validations
+#     Check for special characters and character limit on each text field
