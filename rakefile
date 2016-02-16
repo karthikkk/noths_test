@@ -1,6 +1,6 @@
 require 'cucumber/rake/task'
 
-TEST_REPORT = 'cucumber.json'
+TEST_REPORT = 'cucumber.html'
 FileUtils.rm_rf(TEST_REPORT)
 
 
@@ -9,5 +9,5 @@ Cucumber::Rake::Task.new(:default) do |t|
 end
 
 Cucumber::Rake::Task.new(:all) do |t|
-  t.cucumber_opts = " features --tags ~@smoke --format json --out #{TEST_REPORT} environment=saucelabs"
+  t.cucumber_opts = " features --tags ~@smoke -f pretty --format html --out #{TEST_REPORT} environment=saucelabs"
 end
