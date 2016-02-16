@@ -1,0 +1,13 @@
+require 'cucumber/rake/task'
+
+TEST_REPORT = 'results.html'
+FileUtils.rm_rf(TEST_REPORT)
+
+
+Cucumber::Rake::Task.new(:default) do |t|
+  t.cucumber_opts = " features --format html --out #{TEST_REPORT}"
+end
+
+Cucumber::Rake::Task.new(:all) do |t|
+  t.cucumber_opts = " features --tags ~@smoke --format html --out #{TEST_REPORT} environment=saucelabs"
+end
